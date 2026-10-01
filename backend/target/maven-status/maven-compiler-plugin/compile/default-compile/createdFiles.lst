@@ -1,0 +1,5 @@
+com\rakshith\geodatahub\GeoDataHubApplication.class
+com\rakshith\geodatahub\repository\DatasetRepository.class
+com\rakshith\geodatahub\config\DataSeeder.class
+com\rakshith\geodatahub\entity\Dataset.class
+com\rakshith\geodatahub\controller\DatasetController.class
