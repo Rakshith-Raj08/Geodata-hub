@@ -35,15 +35,8 @@ export default function DatasetDetail() {
       .catch(() => setStatus('error'))
   }, [slug])
 
-  let sourceLinks = []
-  if (dataset?.sourceLinksJson) {
-    try { sourceLinks = JSON.parse(dataset.sourceLinksJson) } catch { sourceLinks = [] }
-  }
-
-  let findings = []
-  if (dataset?.findingsJson) {
-    try { findings = JSON.parse(dataset.findingsJson) } catch { findings = [] }
-  }
+  const sourceLinks = dataset?.sourceLinks || []
+  const findings = dataset?.findings || []
 
   return (
     <div className="container">

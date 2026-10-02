@@ -48,3 +48,13 @@ Thumbs.db
 # data/raw/
 
 # NOTE: public/images/ is intentionally NOT ignored, so your thumbnails get pushed.
+
+
+
+
+geodata_hub_user
+
+vaQg6mgAATUB7kz17cMwC2KtAM5z3zCH
+
+postgresql://geodata_hub_user:vaQg6mgAATUB7kz17cMwC2KtAM5z3zCH@dpg-davic6egekts73e690hg-a/geodata_hub
+

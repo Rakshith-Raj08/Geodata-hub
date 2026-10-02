@@ -1,13 +1,12 @@
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8080/api'
-
 export async function fetchDatasets() {
-  const res = await fetch(`${API_BASE}/datasets`)
+  const res = await fetch('/datasets.json')
   if (!res.ok) throw new Error('Failed to load datasets')
   return res.json()
 }
 
 export async function fetchDataset(slug) {
-  const res = await fetch(`${API_BASE}/datasets/${slug}`)
-  if (!res.ok) throw new Error('Dataset not found')
-  return res.json()
+  const all = await fetchDatasets()
+  const found = all.find((d) => d.slug === slug)
+  if (!found) throw new Error('Dataset not found')
+  return found
 }
