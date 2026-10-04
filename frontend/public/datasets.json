@@ -75,5 +75,50 @@
     "limitations": "The measure covers only self-reported say over a few household decisions, not overall development, and \"joint\" decisions can mean either real partnership or token consultation. Small states like Ladakh and Chandigarh have few respondents, so their numbers are less reliable.",
     "license": null,
     "dateAdded": "2026-10-01"
+  },
+  {
+    "slug": "hyderabad-metro-expansion",
+    "title": "Hyderabad Metro Expansion",
+    "description": "Scores every 1 km square of Hyderabad by transit need and proposes 3 new metro corridors that would bring the most underserved people within walking distance per km of line.",
+    "category": "Transit Planning",
+    "mapUrl": "/maps/hyderabad-metro-expansion.html",
+    "downloadUrl": null,
+    "rawDownloadUrl": null,
+    "downloadNote": null,
+    "repoUrl": "https://github.com/Rakshith-Raj08/Hyderabad-Metro-Prediction",
+    "extraLinks": [
+      {"label": "View need-score map", "url": "/maps/hyderabad-metro-need-score.html"}
+    ],
+    "sourceLinks": [
+      {"name": "OpenStreetMap", "url": "https://www.openstreetmap.org"},
+      {"name": "WorldPop population data", "url": "https://www.worldpop.org"}
+    ],
+    "introText": "Which parts of Hyderabad have the most people living far from a metro station, and where would new lines reach the most of them? This project combines open map and population data into a 1 km grid of the city and scores how much each square needs the metro, then proposes the 3 new corridors that would bring the most unserved people within walking distance per kilometre of line, routed along wide roads.",
+    "methodology": "OpenStreetMap (metro stations, bus stops, schools, colleges and roads) and WorldPop population data were combined for 693 one-kilometre squares covering about 7.8 million people. Most of the effort went into the data and the scoring:\n- The city was defined from population data, because the official boundary had holes and left out parts of Secunderabad.\n- Patchy OpenStreetMap coverage of bus stops and schools was handled by widening the search, and the score is treated as relative need.\n- Six planned and under-construction Old City stations were removed, so only the 64 operational stations count as \"served\".\n- Hand-picked job hubs stand in for commuting, because real commute data isn't openly available.\n\nThe need score is demand (people 50%, schools 25%, colleges 25%) multiplied by gap (distance to the metro 60%, job hubs 30%, bus stops 10%). A simple average pushed the top scores to the empty edges of the city, so the two halves are multiplied instead: a square needs both many people and poor access to rank high.\n\nThe highest-need squares were grouped into 12 hotspots. Candidate lines were routed along trunk, primary and secondary roads. They may only start at the end of an existing line or at a junction (7 allowed start points), can't exceed 15 km, and can't be more than 1.8 times longer than a straight line. Each route is scored by the unserved people within 1 km of it, divided by its length. Stations were placed about every 1.25 km, counting the people within an 800 m walk.",
+    "findings": [
+      {
+        "title": "Three new lines would bring about 441,000 people within walking distance of a station",
+        "text": "Line 1 starts at LB Nagar (South), runs 5.9 km with 5 stations, reaching 83,330 people. Line 2 starts at JBS Parade Ground (North), runs 10.3 km with 8 stations, reaching 191,874 people. Line 3 starts at Miyapur (West), runs 10.3 km with 8 stations, reaching 165,766 people. The map above shows existing lines in their own colours, with each proposed line in a darker shade of the line it extends.",
+        "imageUrl": "/charts/hyderabad-metro-stations-gains.png"
+      },
+      {
+        "title": "The three winning hotspots are not the highest-scoring ones",
+        "text": "Ranked by average need score, the hotspots behind Lines 3, 1 and 2 come 9th, 10th and 11th out of 12. A high need score marks a place that is underserved, but a good corridor also has to be reachable from an allowed start point, stay within the length limit, and reach many unserved people for each kilometre built.",
+        "imageUrl": "/charts/hyderabad-metro-need-vs-efficiency.png"
+      },
+      {
+        "title": "The biggest hotspot misses out by a narrow margin",
+        "text": "The south-west of the city (roughly Mehdipatnam, Tolichowki and Attapur) is the largest hotspot, with about 368,000 people and the second-highest need score \u2014 but it wasn't chosen. Only one allowed start point (MG Bus Station) could reach it within the 15 km limit, and even that 8.8 km route reaches about 17,203 people per km, roughly 10% below Line 3 and well below Line 1's 25,596. About half the people along that route already live within 1.5 km of an existing station, so they don't count as unserved.",
+        "imageUrl": null
+      },
+      {
+        "title": "The hotspot pattern holds up when the scoring weights change",
+        "text": "Between 92% and 94% of the hotspot squares stayed the same when the metro, bus, and job-hub weights were changed \u2014 the three winning corridors aren't an artifact of one particular weighting choice.",
+        "imageUrl": null
+      }
+    ],
+    "limitations": "OpenStreetMap is missing some bus stops, schools, and colleges, so the need score is relative, not absolute. Distance to job hubs stands in for real commuting data, which isn't openly available. Population is a WorldPop model estimate, not a census count. The 15 km length limit and the extension-or-junction start rule decide which hotspots can be reached at all \u2014 a wide road doesn't guarantee a metro can actually be built there. These are priority corridors for further study, not a final alignment.",
+    "license": null,
+    "dateAdded": "2026-10-04"
   }
 ]

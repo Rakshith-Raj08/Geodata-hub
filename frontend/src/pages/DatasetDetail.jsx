@@ -37,6 +37,7 @@ export default function DatasetDetail() {
 
   const sourceLinks = dataset?.sourceLinks || []
   const findings = dataset?.findings || []
+  const extraLinks = dataset?.extraLinks || []
 
   return (
     <div className="container">
@@ -71,7 +72,7 @@ export default function DatasetDetail() {
                 <div className="restricted-note">{dataset.downloadNote}</div>
               )}
 
-              {(dataset.downloadUrl || dataset.rawDownloadUrl || dataset.repoUrl) && (
+              {(dataset.downloadUrl || dataset.rawDownloadUrl || dataset.repoUrl || extraLinks.length > 0) && (
                 <div className="download-group">
                   {dataset.downloadUrl && (
                     <a className="download-btn" href={dataset.downloadUrl} download>
@@ -83,6 +84,11 @@ export default function DatasetDetail() {
                       Download raw data
                     </a>
                   )}
+                  {extraLinks.map((link) => (
+                    <a key={link.url} className="download-btn secondary" href={link.url} target="_blank" rel="noreferrer">
+                      {link.label}
+                    </a>
+                  ))}
                   {dataset.repoUrl && (
                     <a className="download-btn secondary" href={dataset.repoUrl} target="_blank" rel="noreferrer">
                       View code on GitHub
