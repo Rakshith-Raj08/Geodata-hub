@@ -8,10 +8,11 @@ const BASE = import.meta.env.BASE_URL || '/'
 const img = (file) => `${BASE}images/${file}`
 
 // Local images, keyed by slug (most reliable).
-// !! Replace these slugs with the real ones your API returns. !!
+// Slugs match the ones in the datasets JSON.
 const IMAGES_BY_SLUG = {
-  'hyderabad-water-stress-index': img('Hyderabad1.jpg'),
-  'womens-empowerment-archetypes-in-india': img('Women1.jpg'),
+  'hyderabad-water-stress': img('Hyderabad1.jpg'),
+  'women-empowerment-archetypes': img('Women1.jpg'),
+  'hyderabad-metro-expansion': img('Hyderabad2.jpg'),
 }
 
 // Fallback lookup by title, normalized so curly/straight apostrophes,
@@ -22,6 +23,7 @@ const normalize = (s = '') =>
 const IMAGES_BY_TITLE = {
   [normalize('Hyderabad Water Stress Index')]: img('Hyderabad1.jpg'),
   [normalize('Women’s Empowerment Archetypes in India')]: img('Women1.jpg'),
+  [normalize('Hyderabad Metro Expansion')]: img('Hyderabad2.jpg'),
 }
 
 const FALLBACK_GRADIENT = 'linear-gradient(135deg, #FB923C, #C2410C)'
